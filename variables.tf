@@ -55,6 +55,23 @@ variable "subnet_name" {
 variable "kubernetes_version" {
   type        = string
   description = "The version of Kubernetes."
-  default     = "1.29"
-  
+  default     = "1.29" 
+}
+
+variable "auto_scaling_enabled" {
+  type        = bool
+  description = "Enable auto-scaling for the node pool."
+  default     = false
+}
+
+variable "min_count" {
+  type        = number
+  description = "The minimum number of nodes for the node pool."
+  default     = 1
+}
+
+variable "max_count" {
+  type        = number
+  description = "The maximum number of nodes for the node pool."
+  default     = 3
 }
