@@ -29,10 +29,13 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   default_node_pool {
-    name           = "agentpool"
-    vm_size        = "Standard_B2pls_v2"
-    node_count     = var.node_count
-    vnet_subnet_id = azurerm_subnet.simple-aks-subnet.id
+    name                  = "agentpool"
+    vm_size               = "Standard_B2pls_v2"
+    vnet_subnet_id        = azurerm_subnet.simple-aks-subnet.id
+    auto_scaling_enabled  = var.auto_scaling_enabled
+    node_count            = var.node_count
+    min_count             = var.min_count
+    max_count             = var.max_count
   }
 
   network_profile {
