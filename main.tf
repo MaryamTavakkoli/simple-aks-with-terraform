@@ -1,4 +1,3 @@
-
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
   name     = var.resource_group
@@ -35,7 +34,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     node_count     = var.node_count
     vnet_subnet_id = azurerm_subnet.simple-aks-subnet.id
   }
-  
+
   network_profile {
     network_plugin    = "azure"
     load_balancer_sku = "standard"
